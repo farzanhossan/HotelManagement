@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoomCategory - My ASP.NET Application</title><!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <script src="/Scripts/modernizr-2.6.2.js"></script>
+    <style media="screen">
+    body {
+        padding-top: 50px;
+        padding-bottom: 20px;
+    }
+
+    /* Set padding to keep content from hitting the edges */
+    .body-content {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    /* Override the default bootstrap behavior where horizontal description lists
+       will truncate terms that are too long to fit in the left column
+    */
+    .dl-horizontal dt {
+        white-space: normal;
+    }
+
+    /* Set width on the form input elements since they're 100% wide by default */
+    input,
+    select,
+    textarea {
+        max-width: 280px;
+    }
+    </style>
+</head>
+<body>
+    <div class="sidenav">
+        <a href="/Admin">Dashboard</a>
+        <a href="/Admin/RoomCategory">Room Category</a>
+        <a href="/Admin/Rooms">Rooms</a>
+
+    </div>
+    <div id="rightSideNav" class="rightSideNav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/Users/Details">Edit Informations</a>
+        <a href="/Users/Logout">Logout</a>
+    </div>
+    <div class="main">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">Application name</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/Home/About">About</a></li>
+                        <li><a href="/Home/Contact">Contact</a></li>
+                        <li><input type="text" class="btn btn-default" name="search"></li>
+                        <li><input type="submit" class="btn btn-default" value="Search" /></li>
+                    </ul>
+                    <ul class="navbar-collapse collapse" style="float:right">
+                        <li style="margin-top:10px;">
+                            <span style="color:blueviolet" class="user glyphicon glyphicon-user" onclick="openNav()"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div>
+
+        </div>
+        <div class="container body-content">
+
+
+
+
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#Categories">Categories</a></li>
+        <li><a data-toggle="tab" href="#addCategories">Add Categories</a></li>
+    </ul>
+    <form action="/Admin/RoomCategory" method="post" id="form">
+        <div class="tab-content">
+            <div id="Categories" class="tab-pane fade in active">
+                <table class="table">
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            No. Of Beds
+                        </th>
+                        <th>
+                            TV
+                        </th>
+                        <th>
+                            AC
+                        </th>
+                        <th>
+                            Refrigerator
+                        </th>
+                    </tr>
+
+<input data-val="true" data-val-number="The field RoomCategoryId must be a number." data-val-required="The RoomCategoryId field is required." id="item_RoomCategoryId" name="item.RoomCategoryId" type="hidden" value="1" />                        <tr>
+                            <td>
+                                <input class="form-control text-box single-line" id="item_RoomCategoryName" name="item.RoomCategoryName" type="text" value="A" />
+                            </td>
+                            <td>
+                                <input class="form-control text-box single-line" data-val="true" data-val-number="The field NoOfBeds must be a number." data-val-required="The NoOfBeds field is required." id="item_NoOfBeds" name="item.NoOfBeds" type="number" value="1" />
+                            </td>
+                            <td>
+                                <input checked="checked" class="form-control check-box" data-val="true" data-val-required="The TV field is required." id="item_TV" name="item.TV" type="checkbox" value="true" /><input name="item.TV" type="hidden" value="false" />
+                            </td>
+                            <td>
+                                <input checked="checked" class="form-control check-box" data-val="true" data-val-required="The AC field is required." id="item_AC" name="item.AC" type="checkbox" value="true" /><input name="item.AC" type="hidden" value="false" />
+                            </td>
+                            <td>
+                                <input checked="checked" class="form-control check-box" data-val="true" data-val-required="The Refrigerator field is required." id="item_Refrigerator" name="item.Refrigerator" type="checkbox" value="true" /><input name="item.Refrigerator" type="hidden" value="false" />
+                            </td>
+                        </tr>
+<input id="item_RoomCategoryId" name="item.RoomCategoryId" type="hidden" value="2" />                        <tr>
+                            <td>
+                                <input class="form-control text-box single-line" id="item_RoomCategoryName" name="item.RoomCategoryName" type="text" value="A1" />
+                            </td>
+                            <td>
+                                <input class="form-control text-box single-line" data-val="true" data-val-number="The field NoOfBeds must be a number." data-val-required="The NoOfBeds field is required." id="item_NoOfBeds" name="item.NoOfBeds" type="number" value="2" />
+                            </td>
+                            <td>
+                                <input checked="checked" class="form-control check-box" data-val="true" data-val-required="The TV field is required." id="item_TV" name="item.TV" type="checkbox" value="true" /><input name="item.TV" type="hidden" value="false" />
+                            </td>
+                            <td>
+                                <input checked="checked" class="form-control check-box" data-val="true" data-val-required="The AC field is required." id="item_AC" name="item.AC" type="checkbox" value="true" /><input name="item.AC" type="hidden" value="false" />
+                            </td>
+                            <td>
+                                <input checked="checked" class="form-control check-box" data-val="true" data-val-required="The Refrigerator field is required." id="item_Refrigerator" name="item.Refrigerator" type="checkbox" value="true" /><input name="item.Refrigerator" type="hidden" value="false" />
+                            </td>
+                        </tr>
+<input id="item_RoomCategoryId" name="item.RoomCategoryId" type="hidden" value="7" />                        <tr>
+                            <td>
+                                <input class="form-control text-box single-line" id="item_RoomCategoryName" name="item.RoomCategoryName" type="text" value="A2" />
+                            </td>
+                            <td>
+                                <input class="form-control text-box single-line" data-val="true" data-val-number="The field NoOfBeds must be a number." data-val-required="The NoOfBeds field is required." id="item_NoOfBeds" name="item.NoOfBeds" type="number" value="2" />
+                            </td>
+                            <td>
+                                <input checked="checked" class="form-control check-box" data-val="true" data-val-required="The TV field is required." id="item_TV" name="item.TV" type="checkbox" value="true" /><input name="item.TV" type="hidden" value="false" />
+                            </td>
+                            <td>
+                                <input checked="checked" class="form-control check-box" data-val="true" data-val-required="The AC field is required." id="item_AC" name="item.AC" type="checkbox" value="true" /><input name="item.AC" type="hidden" value="false" />
+                            </td>
+                            <td>
+                                <input checked="checked" class="form-control check-box" data-val="true" data-val-required="The Refrigerator field is required." id="item_Refrigerator" name="item.Refrigerator" type="checkbox" value="true" /><input name="item.Refrigerator" type="hidden" value="false" />
+                            </td>
+                        </tr>
+<input id="item_RoomCategoryId" name="item.RoomCategoryId" type="hidden" value="8" />                        <tr>
+                            <td>
+                                <input class="form-control text-box single-line" id="item_RoomCategoryName" name="item.RoomCategoryName" type="text" value="B" />
+                            </td>
+                            <td>
+                                <input class="form-control text-box single-line" data-val="true" data-val-number="The field NoOfBeds must be a number." data-val-required="The NoOfBeds field is required." id="item_NoOfBeds" name="item.NoOfBeds" type="number" value="1" />
+                            </td>
+                            <td>
+                                <input checked="checked" class="form-control check-box" data-val="true" data-val-required="The TV field is required." id="item_TV" name="item.TV" type="checkbox" value="true" /><input name="item.TV" type="hidden" value="false" />
+                            </td>
+                            <td>
+                                <input checked="checked" class="form-control check-box" data-val="true" data-val-required="The AC field is required." id="item_AC" name="item.AC" type="checkbox" value="true" /><input name="item.AC" type="hidden" value="false" />
+                            </td>
+                            <td>
+                                <input class="form-control check-box" data-val="true" data-val-required="The Refrigerator field is required." id="item_Refrigerator" name="item.Refrigerator" type="checkbox" value="true" /><input name="item.Refrigerator" type="hidden" value="false" />
+                            </td>
+                        </tr>
+<input id="item_RoomCategoryId" name="item.RoomCategoryId" type="hidden" value="9" />                        <tr>
+                            <td>
+                                <input class="form-control text-box single-line" id="item_RoomCategoryName" name="item.RoomCategoryName" type="text" value="C" />
+                            </td>
+                            <td>
+                                <input class="form-control text-box single-line" data-val="true" data-val-number="The field NoOfBeds must be a number." data-val-required="The NoOfBeds field is required." id="item_NoOfBeds" name="item.NoOfBeds" type="number" value="1" />
+                            </td>
+                            <td>
+                                <input checked="checked" class="form-control check-box" data-val="true" data-val-required="The TV field is required." id="item_TV" name="item.TV" type="checkbox" value="true" /><input name="item.TV" type="hidden" value="false" />
+                            </td>
+                            <td>
+                                <input class="form-control check-box" data-val="true" data-val-required="The AC field is required." id="item_AC" name="item.AC" type="checkbox" value="true" /><input name="item.AC" type="hidden" value="false" />
+                            </td>
+                            <td>
+                                <input class="form-control check-box" data-val="true" data-val-required="The Refrigerator field is required." id="item_Refrigerator" name="item.Refrigerator" type="checkbox" value="true" /><input name="item.Refrigerator" type="hidden" value="false" />
+                            </td>
+                        </tr>
+<input id="item_RoomCategoryId" name="item.RoomCategoryId" type="hidden" value="10" />                        <tr>
+                            <td>
+                                <input class="form-control text-box single-line" id="item_RoomCategoryName" name="item.RoomCategoryName" type="text" value="D" />
+                            </td>
+                            <td>
+                                <input class="form-control text-box single-line" data-val="true" data-val-number="The field NoOfBeds must be a number." data-val-required="The NoOfBeds field is required." id="item_NoOfBeds" name="item.NoOfBeds" type="number" value="1" />
+                            </td>
+                            <td>
+                                <input class="form-control check-box" data-val="true" data-val-required="The TV field is required." id="item_TV" name="item.TV" type="checkbox" value="true" /><input name="item.TV" type="hidden" value="false" />
+                            </td>
+                            <td>
+                                <input class="form-control check-box" data-val="true" data-val-required="The AC field is required." id="item_AC" name="item.AC" type="checkbox" value="true" /><input name="item.AC" type="hidden" value="false" />
+                            </td>
+                            <td>
+                                <input class="form-control check-box" data-val="true" data-val-required="The Refrigerator field is required." id="item_Refrigerator" name="item.Refrigerator" type="checkbox" value="true" /><input name="item.Refrigerator" type="hidden" value="false" />
+                            </td>
+                        </tr>
+
+                </table>
+                <input class="btn btn-primary" type="submit" name="Edit" value="Edit" />
+            </div>
+
+
+            <div id="addCategories" class="tab-pane fade">
+                <table id="table" class="table" style="visibility:hidden">
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            No. Of Beds
+                        </th>
+                        <th>
+                            TV
+                        </th>
+                        <th>
+                            AC
+                        </th>
+                        <th>
+                            Refrigerator
+                        </th>
+                    </tr>
+                </table>
+                <hr />
+                <button class="btn btn-default" type="button" onclick="addCategory()">Add</button>
+                <input class="btn btn-primary" type="button" name="AddCategory" onclick="submitForm()" value="Submit"  />
+            </div>
+        </div>
+    </form>
+</div>
+
+
+    <script>
+         id = 0;
+        function addCategory() {
+            id++;
+            var table = document.getElementById('table');
+            table.style.visibility = "visible";
+
+            var cName = document.createElement('input');
+            var noOfBeds = document.createElement('input');
+            var tv = document.createElement('input');
+            var ac = document.createElement('input');
+            var refrigerator = document.createElement('input');
+
+            cName.setAttribute('class', 'form-control');
+            cName.setAttribute('name', 'cName');
+            noOfBeds.setAttribute('class', 'form-control');
+            noOfBeds.setAttribute('name', 'noOfBeds');
+            tv.setAttribute('type', 'checkbox');
+            tv.setAttribute('id', "tv"+id);
+            tv.setAttribute('name', 'tv');
+            tv.setAttribute('class', 'form-control check-box');
+            ac.setAttribute('type', 'checkbox');
+            ac.setAttribute('name', 'ac');
+            ac.setAttribute('id', 'ac'+id);
+            ac.setAttribute('class', 'form-control check-box');
+            refrigerator.setAttribute('type', 'checkbox');
+            refrigerator.setAttribute('name', 'refrigerator');
+            refrigerator.setAttribute('id', 'refrigerator'+id);
+            refrigerator.setAttribute('class', 'form-control check-box');
+
+            var cancelBtn = document.createElement('button');
+            cancelBtn.innerText = "Cancel";
+            cancelBtn.setAttribute('onclick', 'canCel(' + id + ')');
+            cancelBtn.setAttribute('class', 'btn btn-danger');
+
+            var row = document.createElement('tr');
+            row.setAttribute('id', id);
+            var td1 = document.createElement('td');
+            var td2 = document.createElement('td');
+            var td3 = document.createElement('td');
+            var td4 = document.createElement('td');
+            var td5 = document.createElement('td');
+            var td6 = document.createElement('td');
+
+            td1.appendChild(cName);
+            td2.appendChild(noOfBeds);
+            td3.appendChild(tv);
+            td4.appendChild(ac);
+            td5.appendChild(refrigerator);
+            td6.appendChild(cancelBtn);
+            row.appendChild(td1);
+            row.appendChild(td2);
+            row.appendChild(td3);
+            row.appendChild(td4);
+            row.appendChild(td5);
+            row.appendChild(td6);
+            table.appendChild(row);
+
+        }
+
+        function submitForm() {
+            for (var i = 1; i <= id; i++) {
+                var tv = document.getElementById('tv' + i);
+
+                    tv.setAttribute('value', 'true');
+                    var tv1 = document.createElement('input');
+                    tv1.setAttribute('name', 'tv');
+                    tv1.setAttribute('type', 'hidden');
+                    tv1.setAttribute('value', 'false');
+                    tv.parentElement.appendChild(tv1);
+
+                var ac = document.getElementById('ac' + i);
+
+                    ac.setAttribute('value', 'true');
+                    var ac1 = document.createElement('input');
+                    ac1.setAttribute('name', 'ac');
+                    ac1.setAttribute('type', 'hidden');
+                    ac1.setAttribute('value', 'false');
+                    ac.parentElement.appendChild(ac1);
+
+                var refrigerator = document.getElementById('refrigerator' + i);
+
+                    refrigerator.setAttribute('value', 'true');
+                    var refrigerator1 = document.createElement('input');
+                    refrigerator1.setAttribute('name', 'refrigerator');
+                    refrigerator1.setAttribute('type', 'hidden');
+                    refrigerator1.setAttribute('value', 'false');
+                    refrigerator.parentElement.appendChild(refrigerator1);
+
+            }
+            var form = document.getElementById('form');
+            form.submit();
+        }
+
+        function canCel(rowId) {
+            var row = document.getElementById(rowId);
+            var table = document.getElementById('table');
+            table.removeChild(row);
+        }
+
+
+    </script>
+
+            <hr />
+            <footer>
+                <p>&copy; 2018 - My ASP.NET Application</p>
+            </footer>
+        </div>
+
+        <script src="/Scripts/jquery-1.10.2.js"></script>
+
+        <script src="/Scripts/bootstrap.js"></script>
+<script src="/Scripts/respond.js"></script>
+
+
+    </div>
+</body>
+</html>
+
+<style>
+
+.rightSideNav {
+height: 100%;
+width: 0;
+position: fixed;
+z-index: 1;
+top: 50px;
+right: 0;
+background-color: #111;
+overflow-x: hidden;
+transition: 0.5s;
+padding-top: 60px;
+}
+
+.rightSideNav a {
+    padding: 5px;
+    text-decoration: none;
+    text-align:center;
+    font-size: 100%;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.rightSideNav a:hover {
+    color: #f1f1f1;
+}
+
+.rightSideNav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+    height: 100%;
+    width: 80px;
+    position: fixed;
+    margin-top:50px;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 5px;
+    min-height:10%;
+    text-align:center;
+    text-decoration: none;
+    font-size: 100%;
+    color: #818181;
+    display: block;
+    border:1px solid;
+    margin-right:2px;
+    border-radius:5px;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.main {
+    margin-left: 80px; /* Same as the width of the sidenav */
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+</style>
+
+<script>
+    function openNav() {
+        document.getElementById("rightSideNav").style.width = "130px";
+    }
+
+    function closeNav() {
+        document.getElementById("rightSideNav").style.width = "0";
+    }
+</script>

@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel - My ASP.NET Application</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <script src="/Scripts/modernizr-2.6.2.js"></script>
+    <style media="screen">
+    body {
+        padding-top: 50px;
+        padding-bottom: 20px;
+    }
+
+    /* Set padding to keep content from hitting the edges */
+    .body-content {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    /* Override the default bootstrap behavior where horizontal description lists
+       will truncate terms that are too long to fit in the left column
+    */
+    .dl-horizontal dt {
+        white-space: normal;
+    }
+
+    /* Set width on the form input elements since they're 100% wide by default */
+    input,
+    select,
+    textarea {
+        max-width: 280px;
+    }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Application name</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/Home/About">About</a></li>
+                    <li><a href="/Home/Contact">Contact</a></li>
+                    <li><input type="text" class="btn btn-default" name="search"></li>
+                    <li><input type="submit" class="btn btn-default" value="Search" /></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+
+
+
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#hotelDetails">Hotel Details</a></li>
+        <li><a data-toggle="tab" href="#rooms">Rooms</a></li>
+    </ul>
+        <div class="tab-content">
+            <div id="hotelDetails" class="tab-pane fade in active">
+
+            </div>
+
+
+            <div id="rooms" class="tab-pane fade">
+                <div class="row">
+                    <div style="text-align:center;margin:5px;background-color:aqua" class="col-md-2">
+                        Room : 2A <br />
+                        Fare : 50000 BDT <br />
+                        <a class="btn btn-success" onclick="bookRoom(1)"> Book</a>
+                        <a class="btn btn-primary"> Details</a>
+                        <br />
+                    </div>
+                    <div style="text-align:center;margin:5px;background-color:aqua" class="col-md-2">
+                        Room : A2 <br />
+                        Fare : 15000 BDT <br />
+                        <a class="btn btn-success" onclick="bookRoom(2)"> Book</a>
+                        <a class="btn btn-primary"> Details</a>
+                        <br />
+                    </div>
+                    <div style="text-align:center;margin:5px;background-color:aqua" class="col-md-2">
+                        Room : A3 <br />
+                        Fare : 40000 BDT <br />
+                        <a class="btn btn-success" onclick="bookRoom(3)"> Book</a>
+                        <a class="btn btn-primary"> Details</a>
+                        <br />
+                    </div>
+                    <div style="text-align:center;margin:5px;background-color:aqua" class="col-md-2">
+                        Room : 1B <br />
+                        Fare : 5000 BDT <br />
+                        <a class="btn btn-success" onclick="bookRoom(4)"> Book</a>
+                        <a class="btn btn-primary"> Details</a>
+                        <br />
+                    </div>
+                    <div style="text-align:center;margin:5px;background-color:aqua" class="col-md-2">
+                        Room : 1C <br />
+                        Fare : 6000 BDT <br />
+                        <a class="btn btn-success" onclick="bookRoom(5)"> Book</a>
+                        <a class="btn btn-primary"> Details</a>
+                        <br />
+                    </div>
+                    <div style="text-align:center;margin:5px;background-color:aqua" class="col-md-2">
+                        Room : 1D <br />
+                        Fare : 6000 BDT <br />
+                        <a class="btn btn-success" onclick="bookRoom(6)"> Book</a>
+                        <a class="btn btn-primary"> Details</a>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+<script>
+
+    function bookRoom(rId) {
+        $.ajax({
+            type: "POST",
+            url: "/User/BookRoom",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: '{ "roomId": "' + rId + '"}',
+            async: false,
+            success: function (response) {
+                alert(response);
+            },
+            failure: function (response) {
+                //alert(response.responseText);
+            },
+            error: function (response) {
+                //alert(response.responseText);
+            }
+        });
+    }
+
+</script>
+
+
+        <hr />
+        <footer>
+            <p>&copy; 2018 - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    <script src="/Scripts/jquery-1.10.2.js"></script>
+
+    <script src="/Scripts/bootstrap.js"></script>
+<script src="/Scripts/respond.js"></script>
+
+
+</body>
+</html>
