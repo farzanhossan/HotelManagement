@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page - My ASP.NET Application</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="site.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+<form action="/Home/Search" method="post">
+  <div class="navbar-collapse collapse">
+                <div class="nav navbar-nav" style="margin-left:35%">
+                    <input type="text" class="btn btn-default" name="search">
+                    <a class="btn btn-default" href="searchHotel.html" >Search Hotels</a>
+                </div>
+            </div>
+</form>        </div>
+    </div>
+    <div class="container body-content">
+
+
+
+<div class="jumbotron">
+  <a  href="Login.html" target="" class="btn btn-primary">Login</a>
+    <a style="float:right" href="Create.html" target="_self" class="btn btn-primary">Create Account</a>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+      <a href="index.html" class="btn btn-primary">Back to Home</a>
+    </div>
+    <div class="col-md-4">
+
+    </div>
+</div>
+        <hr />
+    </div>
+
+
+</body>
+</html>

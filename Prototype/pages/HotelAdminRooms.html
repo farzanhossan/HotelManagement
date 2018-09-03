@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooms - My ASP.NET Application</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="site.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+  <div class="sidenav">
+      <a href="HotelAdmin.html">Dashboard</a>
+      <a href="HotelAdminRoomCategory.html">Room Category</a>
+      <a href="HotelAdminRooms.html">Rooms</a>
+      <a href="HotelAdminFood.html">Foods</a>
+        </div>
+        <div id="rightSideNav" class="rightSideNav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="UsersDetails.html">Edit Informations</a>
+            <a href="Logout.html">Logout</a>
+        </div>
+        <div class="main">
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                    </div>
+        <form action="/Home/Search" method="post">
+          <div class="navbar-collapse collapse">
+                        <div class="nav navbar-nav" style="margin-left:35%">
+                            <input type="text" class="btn btn-default" name="search">
+                            <a class="btn btn-default" href="searchHotel.html" >Search Hotels</a>
+                        </div>
+                    </div>
+        </form>        </div>
+            </div>
+            <div class="container body-content">
+
+
+
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#rooms">Rooms</a></li>
+        <li><a data-toggle="tab" href="#addRooms">Add Rooms</a></li>
+    </ul>
+    <form action="/HotelAdmin/Rooms" method="post" id="form">
+        <div class="tab-content">
+            <div id="rooms" class="tab-pane fade in active">
+                <table class="table">
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Height
+                        </th>
+                        <th>
+                            Width
+                        </th>
+                        <th>
+                            Category
+                        </th>
+                    </tr>
+
+<input data-val="true" data-val-number="The field RoomId must be a number." data-val-required="The RoomId field is required." id="item_RoomId" name="item.RoomId" type="hidden" value="7" />                        <tr>
+                            <td>
+                                <input class="form-control text-box single-line" id="item_RoomName" name="item.RoomName" type="text" value="101" />
+                            </td>
+
+                            <td>
+                                <input class="form-control text-box single-line" data-val="true" data-val-number="The field Height must be a number." data-val-required="The Height field is required." id="item_Height" name="item.Height" type="text" value="700" />
+                            </td>
+                            <td>
+                                <input class="form-control text-box single-line" data-val="true" data-val-number="The field Width must be a number." data-val-required="The Width field is required." id="item_Width" name="item.Width" type="text" value="600" />
+                            </td>
+                            <td>
+                                <select class="form-control" name="category">
+                                            <option value=1>A2 : 2500 BDT</option>
+                                            <option value=2 selected >B : 1500 BDT</option>
+                                </select>
+                            </td>
+                        </tr>
+<input id="item_RoomId" name="item.RoomId" type="hidden" value="8" />                        <tr>
+                            <td>
+                                <input class="form-control text-box single-line" id="item_RoomName" name="item.RoomName" type="text" value="102" />
+                            </td>
+
+                            <td>
+                                <input class="form-control text-box single-line" data-val="true" data-val-number="The field Height must be a number." data-val-required="The Height field is required." id="item_Height" name="item.Height" type="text" value="700" />
+                            </td>
+                            <td>
+                                <input class="form-control text-box single-line" data-val="true" data-val-number="The field Width must be a number." data-val-required="The Width field is required." id="item_Width" name="item.Width" type="text" value="700" />
+                            </td>
+                            <td>
+                                <select class="form-control" name="category">
+                                            <option value=1 selected >A2 : 2500 BDT</option>
+                                            <option value=2>B : 1500 BDT</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                </table>
+                <input class="btn btn-primary" type="submit" name="Edit" value="Edit" />
+            </div>
+
+
+            <div id="addRooms" class="tab-pane fade">
+                <table id="table" class="table" style="visibility:hidden">
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Height
+                        </th>
+                        <th>
+                            Width
+                        </th>
+                        <th>
+                            Category
+                        </th>
+                        <th></th>
+                    </tr>
+                </table>
+                <hr />
+                <button class="btn btn-default" type="button" onclick="addRooms()">Add</button>
+                <input class="btn btn-primary" type="button" name="AddCategory" onclick="submitForm()" value="Submit" />
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<script>
+    id = 0;
+
+    function addRooms() {
+        var table = document.getElementById('table');
+        var row = document.createElement('tr');
+        row.setAttribute('id', id);
+
+        var rName = document.createElement('input');
+        var rHeight = document.createElement('input');
+        var rWidth = document.createElement('input');
+
+        rName.setAttribute('class', 'form-control');
+        rName.setAttribute('name', 'rName');
+        rHeight.setAttribute('class', 'form-control');
+        rHeight.setAttribute('name', 'rHeight');
+        rWidth.setAttribute('class', 'form-control');
+        rWidth.setAttribute('name', 'rWidth');
+
+        var cat = document.createElement('select');
+        var categories;
+        $.ajax({
+            type: "POST",
+            url: "/HotelAdmin/GetRoomCategories",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (response) {
+                categories = JSON.stringify(response);
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+        var c = JSON.parse(categories);
+        cat.setAttribute('name', 'categoryNew');
+        cat.setAttribute('class', 'form-control');
+        for (var j = 0; j < c.length; j++) {
+            var op = document.createElement('option');
+            op.setAttribute('value', c[j].RoomCategoryId);
+            op.innerText = c[j].RoomCategoryName +" : "+c[j].Price+" BDT";
+            cat.appendChild(op);
+        }
+
+        var cancelBtn = document.createElement('button');
+        cancelBtn.setAttribute('onclick', 'canCel(' + id + ')');
+        cancelBtn.setAttribute('class', 'btn btn-danger');
+        cancelBtn.innerText = "Cancel";
+
+        var td1 = document.createElement('td');
+        var td2 = document.createElement('td');
+        var td3 = document.createElement('td');
+        var td4 = document.createElement('td');
+        var td5 = document.createElement('td');
+
+        td1.appendChild(rName);
+        td2.appendChild(rHeight);
+        td3.appendChild(rWidth);
+        td4.appendChild(cat);
+        td5.appendChild(cancelBtn);
+
+        row.appendChild(td1);
+        row.appendChild(td2);
+        row.appendChild(td3);
+        row.appendChild(td4);
+        row.appendChild(td5);
+
+        table.appendChild(row);
+        table.style.visibility = "visible";
+    }
+
+    function submitForm() {
+        var form = document.getElementById('form');
+        form.submit();
+    }
+
+    function canCel(rowId) {
+        var row = document.getElementById(rowId);
+        var table = document.getElementById('table');
+        table.removeChild(row);
+    }
+
+</script>
+
+
+            <hr />
+            <footer>
+                <p>&copy; 2018 - My ASP.NET Application</p>
+            </footer>
+        </div>
+
+        <script src="/Scripts/jquery-1.10.2.js"></script>
+
+        <script src="/Scripts/bootstrap.js"></script>
+<script src="/Scripts/respond.js"></script>
+
+
+    </div>
+</body>
+</html>
+
+<style>
+
+.rightSideNav {
+height: 100%;
+width: 0;
+position: fixed;
+z-index: 1;
+top: 50px;
+right: 0;
+background-color: #111;
+overflow-x: hidden;
+transition: 0.5s;
+padding-top: 60px;
+}
+
+.rightSideNav a {
+    padding: 5px;
+    text-decoration: none;
+    text-align:center;
+    font-size: 100%;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.rightSideNav a:hover {
+    color: #f1f1f1;
+}
+
+.rightSideNav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+    height: 100%;
+    width: 80px;
+    position: fixed;
+    margin-top:50px;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 5px;
+    min-height:10%;
+    text-align:center;
+    text-decoration: none;
+    font-size: 100%;
+    color: #818181;
+    display: block;
+    border:1px solid;
+    margin-right:2px;
+    border-radius:5px;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.main {
+    margin-left: 80px; /* Same as the width of the sidenav */
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+</style>
+
+<script>
+    function openNav() {
+        document.getElementById("rightSideNav").style.width = "130px";
+    }
+
+    function closeNav() {
+        document.getElementById("rightSideNav").style.width = "0";
+    }
+</script>

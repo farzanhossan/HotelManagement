@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookRoom - My ASP.NET Application</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="site.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+        <div class="sidenav">
+            <a href="/User">Dashboard</a>
+
+        </div>
+        <div id="rightSideNav" class="rightSideNav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="/Users/Details">Edit Informations</a>
+            <a href="/Users/Logout">Logout</a>
+        </div>
+        <div class="main">
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                    </div>
+<form action="/User/Search" method="post">                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><input type="text" class="btn btn-default" name="search"></li>
+                            <li><input type="submit" class="btn btn-default" value="Search" /></li>
+                        </ul>
+                        <ul class="navbar-collapse collapse" style="float:right">
+                            <li style="margin-top:10px;">
+                                <span style="color:blueviolet" class="user glyphicon glyphicon-user" onclick="openNav()"></span>
+                            </li>
+                        </ul>
+                    </div>
+</form>                </div>
+            </div>
+            <div>
+
+            </div>
+            <div class="container body-content">
+
+
+
+<h2>BookRoom</h2>
+<hr />
+<form action="/User/BookRoom/8" method="post"><table class="table" style="display:block">
+    <input data-val="true" data-val-number="The field RoomId must be a number." data-val-required="The RoomId field is required." id="RoomId" name="RoomId" type="hidden" value="8" />
+    <tr>
+        <td>
+            <label class="label label-default" style="font-size:20px;display:inline;">Select Days to Book :</label>
+        </td>
+        <td>
+            <input class="form-control" name="fromDate" type="date" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label class="label label-default" style="font-size:20px;display:inline;">Select Days to Book :</label>
+        </td>
+        <td>
+            <select name="days" id="days" class="form-control" style="display:inline" onchange="calculatePayment(2500,this.value)">
+                <option selected value="1">1 Day </option>
+                <option value="2">2 Days </option>
+                <option value="3">3 Days </option>
+                <option value="4">4 Days </option>
+                <option value="5">5 Days </option>
+                <option value="6">6 Days </option>
+                <option value="7">7 Days </option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label class="label label-default" style="font-size:20px;display:inline;">Payment Option :</label>
+        </td>
+        <td>
+            <select class="form-control" style="display:inline">
+                <option>BKash</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label class="label label-default" style="font-size:20px;display:inline;">You Have to Pay :</label>
+        </td>
+        <td>
+            <label class="label label-success" id="payment" style="font-size:20px;display:inline;"> 2500 BDT</label>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <a class="btn btn-default" href="hotel.html" >Back To Hotel</a>
+            <a class="btn btn-primary" href="bkashPaymentforroom.html" >Proceed</a>
+        </td>
+    </tr>
+</table>
+</form>
+<script>
+
+    function calculatePayment(price, days) {
+        document.getElementById('payment').innerText = (price * days) + " BDT";
+    }
+
+</script>
+                <hr />
+                <footer>
+                    <p>&copy; 2018 - My ASP.NET Application</p>
+                </footer>
+            </div>
+
+            <script src="/Scripts/jquery-1.10.2.js"></script>
+
+            <script src="/Scripts/bootstrap.js"></script>
+<script src="/Scripts/respond.js"></script>
+
+
+        </div>
+    </body>
+</html>
+
+<style>
+
+    .rightSideNav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 50px;
+        right: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+
+        .rightSideNav a {
+            padding: 5px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 100%;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+            .rightSideNav a:hover {
+                color: #f1f1f1;
+            }
+
+        .rightSideNav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+    body {
+        font-family: "Lato", sans-serif;
+    }
+
+    .sidenav {
+        height: 100%;
+        width: 80px;
+        position: fixed;
+        margin-top: 50px;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        padding-top: 20px;
+    }
+
+        .sidenav a {
+            padding: 5px;
+            min-height: 10%;
+            text-align: center;
+            text-decoration: none;
+            font-size: 100%;
+            color: #818181;
+            display: block;
+            border: 1px solid;
+            margin-right: 2px;
+            border-radius: 5px;
+        }
+
+            .sidenav a:hover {
+                color: #f1f1f1;
+            }
+
+    .main {
+        margin-left: 80px; /* Same as the width of the sidenav */
+    }
+
+    @media screen and (max-height: 450px) {
+        .sidenav {
+            padding-top: 15px;
+        }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+    }
+</style>
+
+<script>
+    function openNav() {
+        document.getElementById("rightSideNav").style.width = "130px";
+    }
+
+    function closeNav() {
+        document.getElementById("rightSideNav").style.width = "0";
+    }
+</script>

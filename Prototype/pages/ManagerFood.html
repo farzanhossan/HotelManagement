@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food - My ASP.NET Application</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="site.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+        <div class="sidenav">
+            <a href="/Manager">Dashboard</a>
+            <a href="/Manager/Food">Food</a>
+
+        </div>
+        <div id="rightSideNav" class="rightSideNav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="/Users/Details">Edit Informations</a>
+            <a href="/Users/Logout">Logout</a>
+        </div>
+        <div class="main">
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                    </div>
+
+                    <div class="navbar-collapse collapse">
+
+                        <ul class="navbar-collapse collapse" style="float:right">
+                            <li style="margin-top:10px;">
+                                <span style="color:blueviolet" class="user glyphicon glyphicon-user" onclick="openNav()"></span>
+                            </li>
+                        </ul>
+                        <div class="navbar-collapse collapse">
+                                      <div class="nav navbar-nav" style="margin-left:35%">
+                                          <input type="text" class="btn btn-default" name="search">
+                                          <a class="btn btn-default" href="searchHotel.html" >Search Hotels</a>
+                                      </div>
+                                  </div>
+                    </div>
+
+                </div>
+            </div>
+            <div>
+
+            </div>
+            <div class="container body-content">
+
+
+
+<form action="/Manager/Food" method="post">
+    <table class="table">
+        <tr>
+            <th>
+                Food Type
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Items
+            </th>
+            <th>
+                Quantity
+            </th>
+        </tr>
+
+<input data-val="true" data-val-number="The field FoodId must be a number." data-val-required="The FoodId field is required." id="item_FoodId" name="item.FoodId" type="hidden" value="4" />            <tr>
+                <td>
+                    Burger
+                </td>
+                <td>
+                    250
+                </td>
+                <td>
+Burger <span>&nbsp;</span>
+1 <br />
+                </td>
+                <td>
+                    <input class="form-control text-box single-line" data-val="true" data-val-number="The field Quantity must be a number." data-val-required="The Quantity field is required." id="item_Quantity" name="item.Quantity" style="text-align:center" type="number" value="0" />
+                </td>
+            </tr>
+<input id="item_FoodId" name="item.FoodId" type="hidden" value="5" />            <tr>
+                <td>
+                    Set Menu 1
+                </td>
+                <td>
+                    550
+                </td>
+                <td>
+Fried Rice <span>&nbsp;</span>
+1 <br />
+Chicken <span>&nbsp;</span>
+1 <br />
+Vegetable <span>&nbsp;</span>
+1 <br />
+Salaad <span>&nbsp;</span>
+1 <br />
+                </td>
+                <td>
+                    <input class="form-control text-box single-line" data-val="true" data-val-number="The field Quantity must be a number." data-val-required="The Quantity field is required." id="item_Quantity" name="item.Quantity" style="text-align:center" type="number" value="9" />
+                </td>
+            </tr>
+
+    </table>
+    <input class="btn btn-primary" type="submit" name="Edit" value="Edit" />
+</form>
+
+                <hr />
+                <footer>
+                    <p>&copy; 2018 - My ASP.NET Application</p>
+                </footer>
+            </div>
+
+            <script src="/Scripts/jquery-1.10.2.js"></script>
+
+            <script src="/Scripts/bootstrap.js"></script>
+<script src="/Scripts/respond.js"></script>
+
+
+        </div>
+
+</body>
+</html>
+
+<style>
+
+    .rightSideNav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 50px;
+        right: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+
+        .rightSideNav a {
+            padding: 5px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 100%;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+            .rightSideNav a:hover {
+                color: #f1f1f1;
+            }
+
+        .rightSideNav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+    body {
+        font-family: "Lato", sans-serif;
+    }
+
+    .sidenav {
+        height: 100%;
+        width: 80px;
+        position: fixed;
+        margin-top: 50px;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        padding-top: 20px;
+    }
+
+        .sidenav a {
+            padding: 5px;
+            min-height: 10%;
+            text-align: center;
+            text-decoration: none;
+            font-size: 100%;
+            color: #818181;
+            display: block;
+            border: 1px solid;
+            margin-right: 2px;
+            border-radius: 5px;
+        }
+
+            .sidenav a:hover {
+                color: #f1f1f1;
+            }
+
+    .main {
+        margin-left: 80px; /* Same as the width of the sidenav */
+    }
+
+    @media screen and (max-height: 450px) {
+        .sidenav {
+            padding-top: 15px;
+        }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+    }
+</style>
+
+<script>
+    function openNav() {
+        document.getElementById("rightSideNav").style.width = "130px";
+    }
+
+    function closeNav() {
+        document.getElementById("rightSideNav").style.width = "0";
+    }
+</script>

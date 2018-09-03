@@ -1,0 +1,395 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoomCategory - My ASP.NET Application</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="site.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+      <div class="sidenav">
+          <a href="HotelAdmin.html">Dashboard</a>
+          <a href="HotelAdminRoomCategory.html">Room Category</a>
+          <a href="HotelAdminRooms.html">Rooms</a>
+          <a href="HotelAdminFood.html">Foods</a>
+            </div>
+            <div id="rightSideNav" class="rightSideNav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="UsersDetails.html">Edit Informations</a>
+                <a href="Logout.html">Logout</a>
+            </div>
+            <div class="main">
+                <div class="navbar navbar-inverse navbar-fixed-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+
+                        </div>
+            <form action="/Home/Search" method="post">
+              <div class="navbar-collapse collapse">
+                            <div class="nav navbar-nav" style="margin-left:35%">
+                                <input type="text" class="btn btn-default" name="search">
+                                <a class="btn btn-default" href="searchHotel.html" >Search Hotels</a>
+                            </div>
+                        </div>
+            </form>        </div>
+                </div>
+                <div class="container body-content">
+
+
+
+
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#Categories">Categories</a></li>
+        <li><a data-toggle="tab" href="#addCategories">Add Categories</a></li>
+    </ul>
+    <form action="/HotelAdmin/RoomCategory" method="post" id="form">
+        <div class="tab-content">
+            <div id="Categories" class="tab-pane fade in active">
+                <table class="table">
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Price (in BDT)
+                        </th>
+                        <th>
+                            Items
+                        </th>
+                        <th></th>
+                    </tr>
+
+<input data-val="true" data-val-number="The field RoomCategoryId must be a number." data-val-required="The RoomCategoryId field is required." id="item_RoomCategoryId" name="item.RoomCategoryId" type="hidden" value="1" />                        <tr>
+                            <td>
+                                A2
+                            </td>
+                            <td>
+                                2500
+                            </td>
+                            <td>
+1 <span>&nbsp;</span>
+AC <br />
+2 <span>&nbsp;</span>
+Bed <br />
+1 <span>&nbsp;</span>
+TV <br />
+                            </td>
+                            <td>
+                                <a href="/HotelAdmin/EditRoomCategory/1" type="button" class="btn btn-default">Edit</a>
+                                <button onclick="deleteFood(1)" type="button" class="btn btn-danger">Delete</button>
+                            </td>
+                        </tr>
+<input id="item_RoomCategoryId" name="item.RoomCategoryId" type="hidden" value="2" />                        <tr>
+                            <td>
+                                B
+                            </td>
+                            <td>
+                                1500
+                            </td>
+                            <td>
+1 <span>&nbsp;</span>
+AC <br />
+1 <span>&nbsp;</span>
+Bed <br />
+1 <span>&nbsp;</span>
+TV <br />
+                            </td>
+                            <td>
+                                <a href="/HotelAdmin/EditRoomCategory/2" type="button" class="btn btn-default">Edit</a>
+                                <button onclick="deleteFood(2)" type="button" class="btn btn-danger">Delete</button>
+                            </td>
+                        </tr>
+
+                </table>
+            </div>
+
+
+            <div id="addCategories" class="tab-pane fade">
+                <table id="table" class="table" style="visibility:hidden">
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Price
+                        </th>
+                        <th>
+                            Item Names
+                        </th>
+                        <th>
+                            Quantity
+                        </th>
+                        <th></th>
+                    </tr>
+                </table>
+                <hr />
+                <button class="btn btn-danger" style="display:none" type="button" id="cancel" onclick="canCel()">Cancel</button>
+                <button class="btn btn-default" type="button" onclick="addCategory()" id="add">Add</button>
+                <button class="btn btn-default" style="display:none" type="button" onclick="addItem()" id="addItemBtn">Add Items</button>
+                <input class="btn btn-primary" type="button" name="AddCategory" onclick="submitForm()" value="Submit" />
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<script>
+    function addCategory() {
+        try {
+            var xxx = document.getElementById(1);
+            if (xxx == null) {
+                document.getElementById('add').style.display = "none";
+                id = 1;
+                var table = document.getElementById('table');
+                var row = document.createElement('tr');
+                row.setAttribute('id', id);
+
+                var cName = document.createElement('input');
+                var cPrice = document.createElement('input');
+                var itemName = document.createElement('input');
+                var itemQuantity = document.createElement('input');
+
+                cName.setAttribute('name', 'cName');
+                cName.setAttribute('class', 'form-control');
+                cName.setAttribute('placeholder', 'ex. A or B..');
+                cPrice.setAttribute('name', 'cPrice');
+                cPrice.setAttribute('class', 'form-control');
+                cPrice.setAttribute('type', 'number');
+                cPrice.setAttribute('placeholder', 'Type Price');
+                itemName.setAttribute('name', 'itemName');
+                itemName.setAttribute('class', 'form-control');
+                itemName.setAttribute('placeholder', 'ex. TV or Sofa or AC..');
+                itemQuantity.setAttribute('name', 'itemQuantity');
+                itemQuantity.setAttribute('class', 'form-control');
+                itemQuantity.setAttribute('placeholder', 'ex. 1 or 2...');
+
+                var td1 = document.createElement('td');
+                var td2 = document.createElement('td');
+                var td3 = document.createElement('td');
+                var td4 = document.createElement('td');
+                var td5 = document.createElement('td');
+
+                td1.appendChild(cName);
+                td2.appendChild(cPrice);
+                td3.appendChild(itemName);
+                td4.appendChild(itemQuantity);
+
+                row.appendChild(td1);
+                row.appendChild(td2);
+                row.appendChild(td3);
+                row.appendChild(td4);
+                row.appendChild(td5);
+
+                table.appendChild(row);
+                document.getElementById('addItemBtn').style.display = "inline";
+                document.getElementById('cancel').style.display = "inline";
+                table.style.visibility = "visible";
+            }
+        } catch (err) { }
+    }
+
+    tdId = 1;
+    function addItem() {
+        var table = document.getElementById('table');
+        tdId++;
+        var row = document.createElement('tr');
+        row.setAttribute('id', tdId);
+
+        var itemName = document.createElement('input');
+        var itemQuantity = document.createElement('input');
+        var cBtn = document.createElement('button');
+        itemName.setAttribute('name', 'itemName');
+        itemName.setAttribute('class', 'form-control');
+        itemName.setAttribute('placeholder', 'ex. TV or Sofa or AC..');
+        itemQuantity.setAttribute('name', 'itemQuantity');
+        itemQuantity.setAttribute('class', 'form-control');
+        itemQuantity.setAttribute('placeholder', 'ex. 1 or 2...');
+
+        cBtn.setAttribute('onclick', 'cancelItemNameAndPrice(' + tdId + ')');
+        cBtn.setAttribute('class', 'btn btn-danger');
+        cBtn.innerText = "Cancel";
+
+        var td1 = document.createElement('td');
+        var td2 = document.createElement('td');
+        var td3 = document.createElement('td');
+        var td4 = document.createElement('td');
+        var td5 = document.createElement('td');
+
+        td3.appendChild(itemName);
+        td4.appendChild(itemQuantity);
+        td5.appendChild(cBtn);
+
+        row.appendChild(td1);
+        row.appendChild(td2);
+        row.appendChild(td3);
+        row.appendChild(td4);
+        row.appendChild(td5);
+
+        table.appendChild(row);
+
+
+    }
+    function cancelItemNameAndPrice(iId) {
+        var row = document.getElementById(iId);
+        var table = document.getElementById('table');
+        table.removeChild(row);
+    }
+
+    function submitForm() {
+        var form = document.getElementById('form');
+        form.submit();
+    }
+
+    function canCel() {
+
+        var table = document.getElementById('table');
+        var j = table.rows.length;
+        for (var i = 1; i < j; i++) {
+            var row = document.getElementById(i);
+            table.removeChild(row);
+        }
+        table.style.visibility = "hidden";
+        document.getElementById('addItemBtn').style.display = "none";
+        document.getElementById('add').style.display = "inline";
+        document.getElementById('cancel').style.display = "none";
+        tdId = 1;
+    }
+
+    function deleteFood(rcId) {
+        $.ajax({
+            type: "POST",
+            url: "/HotelAdmin/DeleteRoomCategory/" + rcId,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (response) {
+                window.location = "/HotelAdmin/RoomCategory";
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    }
+
+
+</script>
+
+            <hr />
+            <footer>
+                <p>&copy; 2018 - My ASP.NET Application</p>
+            </footer>
+        </div>
+
+        <script src="/Scripts/jquery-1.10.2.js"></script>
+
+        <script src="/Scripts/bootstrap.js"></script>
+<script src="/Scripts/respond.js"></script>
+
+
+    </div>
+</body>
+</html>
+
+<style>
+
+.rightSideNav {
+height: 100%;
+width: 0;
+position: fixed;
+z-index: 1;
+top: 50px;
+right: 0;
+background-color: #111;
+overflow-x: hidden;
+transition: 0.5s;
+padding-top: 60px;
+}
+
+.rightSideNav a {
+    padding: 5px;
+    text-decoration: none;
+    text-align:center;
+    font-size: 100%;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.rightSideNav a:hover {
+    color: #f1f1f1;
+}
+
+.rightSideNav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+    height: 100%;
+    width: 80px;
+    position: fixed;
+    margin-top:50px;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 5px;
+    min-height:10%;
+    text-align:center;
+    text-decoration: none;
+    font-size: 100%;
+    color: #818181;
+    display: block;
+    border:1px solid;
+    margin-right:2px;
+    border-radius:5px;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.main {
+    margin-left: 80px; /* Same as the width of the sidenav */
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+</style>
+
+<script>
+    function openNav() {
+        document.getElementById("rightSideNav").style.width = "130px";
+    }
+
+    function closeNav() {
+        document.getElementById("rightSideNav").style.width = "0";
+    }
+</script>

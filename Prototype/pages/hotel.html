@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel - My ASP.NET Application</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="site.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+<form action="/Home/Search" method="post">
+  <div class="navbar-collapse collapse">
+                <div class="nav navbar-nav" style="margin-left:35%">
+                    <input type="text" class="btn btn-default" name="search">
+                    <a class="btn btn-default" href="searchHotel.html" >Search Hotels</a>
+                </div>
+            </div>
+</form>        </div>
+    </div>
+    <div class="container body-content">
+
+<link href="/Content/RoomBookModal.css" rel="stylesheet" />
+
+
+
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#hotelDetails">Hotel Details</a></li>
+        <li><a data-toggle="tab" href="#rooms">Rooms</a></li>
+        <li><a data-toggle="tab" href="#foods">Foods</a></li>
+    </ul>
+    <div class="tab-content">
+        <div id="hotelDetails" class="tab-pane fade in active">
+            <h2 style="text-align:center">F Hotels &amp; Restuarant</h2>
+            <hr />
+            <label style="text-align:center" class="form-control"> Address : Dhaka, BAngladesh</label>
+            <label class="form-control" style="text-align:center"> Email : farah.aidid@outlook.com</label>
+        </div>
+
+
+        <div id="rooms" class="tab-pane fade">
+                <div class="row">
+                        <div style="text-align:center;margin:5px;background-color:aqua" class="col-md-2">
+                            Room : 102 <br />
+                            <span>&#64</span> 2500 BDT
+                            <hr style="color:black" />
+                            <label class="label label-primary">Facilities</label><br />
+1 <span>&nbsp</span>
+AC <br />
+2 <span>&nbsp</span>
+Bed <br />
+1 <span>&nbsp</span>
+TV <br />
+                            <a class="btn btn-success" target="_blank" href="bookRoom.html"> Book</a>
+                        </div>
+                </div>
+        </div>
+
+        <div id="foods" class="tab-pane fade">
+            <div class="row">
+                    <div style="text-align:center;margin:5px;background-color:aqua" class="col-md-2">
+                        Set Menu 1 <br />
+                        <span>&#64</span> 550 BDT <br />
+
+                        <img src="/uploads/XAtxZB4fO3Yd2h4Mexican-Subway-Fried-Rice-Set-Menu-3-items.jpg" style="max-width:100px;" /> <br />
+                        Items : <br />
+                        <p>
+1 <span> &nbsp;</span>
+Fried Rice <br />
+1 <span> &nbsp;</span>
+Chicken <br />
+1 <span> &nbsp;</span>
+Vegetable <br />
+1 <span> &nbsp;</span>
+Salaad <br />
+                        </p>
+                        <a class="btn btn-success" href="orderFood.html"> Order</a>
+
+                        <br />
+                    </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    rid = 0; price = 0;
+    function bookRoom(rId, p) {
+        rid = rId;
+        price = p;
+        document.getElementById('roomBooking').style.display = 'block';
+        calculatePayment(1);
+        console.log(rId);
+        //$.ajax({
+        //    type: "POST",
+        //    url: "/User/BookRoom",
+        //    contentType: "application/json; charset=utf-8",
+        //    dataType: "json",
+        //    data: '{ "roomId": "' + rId + '"}',
+        //    async: false,
+        //    success: function (response) {
+        //        alert(response);
+        //    },
+        //    failure: function (response) {
+        //        //alert(response.responseText);
+        //    },
+        //    error: function (response) {
+        //        //alert(response.responseText);
+        //    }
+        //});
+    }
+
+    // Get the modal
+    var roomBooking = document.getElementById('roomBooking');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == roomBooking) {
+            roomBooking.style.display = "none";
+        }
+    }
+
+    function calculatePayment( days) {
+        var span = document.getElementById('Payment');
+        span.innerText = (price * days) + " BDT";
+    }
+
+</script>
+
+
+        <hr />
+        <footer>
+            <p>&copy; 2018 - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    <script src="/Scripts/jquery-1.10.2.js"></script>
+
+    <script src="/Scripts/bootstrap.js"></script>
+<script src="/Scripts/respond.js"></script>
+
+
+</body>
+</html>

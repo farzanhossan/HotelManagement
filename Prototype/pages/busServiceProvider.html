@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewHotel - My ASP.NET Application</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="site.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+<form action="/Home/Search" method="post">            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><input type="text" class="btn btn-default" name="search"></li>
+                    <li><input type="submit" class="btn btn-default" value="Search" /></li>
+                </ul>
+            </div>
+</form>        </div>
+    </div>
+    <div class="container body-content">
+
+
+
+<h2>NewHotel</h2>
+
+<form action="/Home/NewHotel" enctype="multipart/form-data" method="post"><input name="__RequestVerificationToken" type="hidden" value="OyIME1QFZkQYXYErg1LOQta3xpeSzZU2r8GShP2zDZfiugkGy58AOVCyDihg1jhTJ1c5RnLx8E03zwKZATo5TkniZ4TWVjhumHNgucijGrQ1" />    <div class="form-horizontal">
+        <h4>Hotel</h4>
+        <hr />
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Hotel_Name_:_">Hotel Name : </label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-regex="Name should contain only Letters." data-val-regex-pattern="(([A-za-z]+[\s]{1}[A-za-z]+)|([A-za-z]+))$" data-val-required="Name cannot be empty." id="HotelName" name="HotelName" type="text" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="HotelName" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Hotel_Address_:_">Hotel Address : </label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-regex="Address is not valid." data-val-regex-pattern="^[#.0-9a-zA-Z\s,-]+$" data-val-required="Address cannot be empty." id="HotelAddress" name="HotelAddress" type="text" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="HotelAddress" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Email">Email</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-regex="Email is not valid" data-val-regex-pattern="^[\w-\._\+%]+@(?:[\w-]+\.)+[\w]{2,6}$" data-val-required="Email cannot be empty." id="Email" name="Email" type="text" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Retype_Email_:_">Retype Email : </label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-equalto="Email did not matched." data-val-equalto-other="*.Email" id="RetypeEmail" name="RetypeEmail" type="text" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="RetypeEmail" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Password">Password</label>
+            <div class="col-md-10">
+                <input type="password" name="Password" class = "form-control">
+                <span class="field-validation-valid text-danger" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="file" name="CurrentBill" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+<div>
+    <a href="/">Back to List</a>
+</div>
+
+        <hr />
+        <footer>
+            <p>&copy; 2018 - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    <script src="/Scripts/jquery-1.10.2.js"></script>
+
+    <script src="/Scripts/bootstrap.js"></script>
+<script src="/Scripts/respond.js"></script>
+
+
+</body>
+</html>
